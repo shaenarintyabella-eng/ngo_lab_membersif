@@ -1,0 +1,167 @@
+:root {
+    --primary-brown: #4a3228;
+    --gold-accent: #bc8a5f;
+    --bg-cream: #fdf8f5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.mobile-app {
+    width: 100%;
+    max-width: 414px; /* Standar ukuran HP */
+    background-color: var(--bg-cream);
+    min-height: 100vh;
+    position: relative;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+}
+
+.header-section {
+    padding: 30px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.back-link {
+    text-decoration: none;
+    font-size: 24px;
+    color: var(--primary-brown);
+}
+
+.header-section h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--primary-brown);
+}
+
+.content-container {
+    padding: 10px 20px;
+}
+
+/* KARTU MEMBER */
+.membership-card {
+    background: #ffffff;
+    border-radius: 30px;
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(74, 50, 40, 0.1);
+    border: 1px solid rgba(188, 138, 95, 0.1);
+}
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.brand-name {
+    font-weight: 800;
+    color: var(--primary-brown);
+    letter-spacing: 1px;
+}
+
+.status-badge {
+    background: #f3f9f6;
+    color: #2d6a4f;
+    font-size: 10px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: 700;
+}
+
+.instruction {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 30px;
+}
+
+/* FRAME QR */
+.qr-frame {
+    background: #fff;
+    padding: 15px;
+    border-radius: 25px;
+    display: inline-block;
+    border: 2px dashed var(--gold-accent);
+    margin-bottom: 25px;
+}
+
+.qr-frame img {
+    width: 200px;
+    height: 200px;
+    display: block;
+}
+
+.user-name {
+    font-size: 20px;
+    color: var(--primary-brown);
+    margin-bottom: 5px;
+}
+
+.user-email {
+    font-size: 13px;
+    color: #aaa;
+    margin-bottom: 35px;
+}
+
+.card-bottom {
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid #f5f5f5;
+    padding-top: 25px;
+}
+
+.valid-info small {
+    display: block;
+    font-size: 10px;
+    color: #bbb;
+    margin-bottom: 4px;
+}
+
+.valid-info p {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gold-accent);
+}
+
+/* NAVIGASI BAWAH */
+.bottom-nav {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: white;
+    display: flex;
+    justify-content: space-around;
+    padding: 15px 0;
+    border-top: 1px solid #eee;
+}
+
+.bottom-nav a {
+    text-decoration: none;
+    color: #bbb;
+    font-size: 11px;
+    text-align: center;
+}
+
+.bottom-nav a.active {
+    color: var(--primary-brown);
+    font-weight: 700;
+}
+
+.bottom-nav .icon {
+    display: block;
+    font-size: 20px;
+    margin-bottom: 4px;
+}

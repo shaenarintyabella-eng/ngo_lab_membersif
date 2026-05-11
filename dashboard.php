@@ -3,60 +3,137 @@ session_start();
 
 if(!isset($_SESSION['user'])){
     header("Location: login.php");
-    exit;
+    exit();
 }
 
 $user = $_SESSION['user'];
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-    <title>Dashboard</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <title>Ngolab Dashboard</title>
+    <link rel="stylesheet" href="assets/css/styles.css?v=100">
+    <script src="assets/js/app.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .food-info h4, .food-info .price, .section-title, .greeting p {
+            font-style: normal !important;
+        }
+    </style>
 </head>
 <body>
 
-<div class="navbar">
+<div class="mobile-app">
 
-    <h2>Ngo+Lab Membership</h2>
-
-    <div>
-        <a href="dashboard.php">Dashboard</a>
-        <a href="reward.php">Reward</a>
-        <a href="member_qr.php">QR Member</a>
-        <a href="logout.php">Logout</a>
+    <div class="header">
+        <div style="padding: 20px 50px 10px 50px;">
+            <p class="hello">Welcome Back 👋</p>
+            <h2 style="font-size: 22px; color: #006241;">
+                <?php echo htmlspecialchars($user['nama']); ?>
+            </h2>
+        </div>
     </div>
 
-</div>
+    <div class="header-promo">
+        <div class="notif-btn">🔔</div>
+        <p class="date-text">4 - 14 Mei 2026</p>
+        <h1>Bigger Deals<br>NGOLABeveryone</h1>
+        <p class="sub-promo">Diskon hingga 100.000 Koin</p>
+    </div>
 
-<div class="container">
+    <div class="point-box">
+        <div class="badge-point">
+            🟢 <?php echo $user['poin']; ?> Poin
+        </div>
+        <a href="reward.php" class="redeem-link">Tukarkan poin &gt;</a>
+    </div>
 
-    <div class="card">
+    <div class="greeting" style="padding: 0 50px;">
+        <p>Hi <?php echo htmlspecialchars($user['nama']); ?>, Pesan Sekarang?</p>
+    </div>
 
-        <h2 class="title">
-            Selamat Datang,
-            <?php echo $user['nama']; ?> 👋
-        </h2>
+    <div class="section-title" style="padding: 0 50px; font-weight: 800; font-size: 24px; color: #4a3228;">Katalog Menu Ngolab</div>
+    
+    <div class="menu-grid">
+        <div class="food-item">
+            <img src="https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?w=400" alt="Mie Yamin">
+            <div class="food-info">
+                <h4>Mie Yamin Biasa</h4>
+                <div class="price">18.000 Koin</div>
+            </div>
+        </div>
 
-        <p>Email : <?php echo $user['email']; ?></p>
+        <div class="food-item">
+            <img src="https://images.unsplash.com/photo-1541529086526-db283c563270?w=400" alt="Bakso Special">
+            <div class="food-info">
+                <h4>Bakso Malang Special</h4>
+                <div class="price">28.000 Koin</div>
+            </div>
+        </div>
 
-        <p>Total Poin :</p>
+        <div class="food-item">
+            <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400" alt="Yamin Bakso">
+            <div class="food-info">
+                <h4>Yamin Bakso</h4>
+                <div class="price">25.000 Koin</div>
+            </div>
+        </div>
 
-        <h1>
-            <?php echo $user['poin']; ?> Poin
-        </h1>
+        <div class="food-item">
+            <img src="assets/img/bakso.jpeg" alt="Bakso">
+            <div class="food-info">
+                <h4>Bakso Ekstra</h4>
+                <div class="price">15.000 Koin</div>
+            </div>
+        </div>
 
-        <br>
+        <div class="food-item">
+            <img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=400" alt="Es Krim Vanila">
+            <div class="food-info">
+                <h4>Es Krim Vanila</h4>
+                <div class="price">12.000 Koin</div>
+            </div>
+        </div>
 
-        <a href="reward.php">
-            <button class="btn">
-                Tukar Reward
-            </button>
+        <div class="food-item">
+            <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400" alt="Es Krim Coklat">
+            <div class="food-info">
+                <h4>Es Krim Coklat</h4>
+                <div class="price">15.000 Koin</div>
+            </div>
+        </div>
+
+        <div class="food-item">
+            <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400" alt="Teh Manis">
+            <div class="food-info">
+                <h4>Teh Manis Fresh</h4>
+                <div class="price">5.000 Koin</div>
+            </div>
+        </div>
+
+        <div class="food-item">
+            <img src="assets/img/minuman.jpg" alt="Minuman Leci">
+            <div class="food-info">
+                <h4>Minuman Leci</h4>
+                <div class="price">12.000 Koin</div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="bottom-nav">
+        <a href="dashboard.php" class="nav-item active">
+            <span>🏠</span>Home
         </a>
-
-    </div>
+        <a href="member_qr.php" class="nav-item">
+            <span>📱</span>QR
+        </a>
+        <a href="logout.php" class="nav-item">
+            <span>🚪</span>Keluar
+        </a>
+    </nav>
 
 </div>
 

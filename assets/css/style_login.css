@@ -1,0 +1,105 @@
+/* --- TEMA FULL COKELAT MAHAL (VERSI WEB) --- */
+:root {
+    --primary-cokelat: #4a3228; /* Warna cokelat utama kamu */
+    --accent-gold: #bc8a5f;
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    /* LATAR BELAKANG FULL COKELAT */
+    background-color: var(--primary-cokelat); 
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px; /* TETAP WEB DESKTOP */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Kita hapus background white di sini biar latarnya full cokelat dari body */
+}
+
+.card {
+    background: white;
+    width: 90%;
+    max-width: 450px; /* Ukuran kotak login tetap proporsional */
+    padding: 50px 40px;
+    border-radius: 40px; /* Makin bulat biar makin modern */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3); /* Shadow lebih dalam biar mewah */
+    text-align: center;
+}
+
+.title {
+    color: var(--primary-cokelat);
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 35px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 18px 20px;
+    border-radius: 15px;
+    border: 1px solid #eee;
+    outline: none;
+    font-size: 14px;
+    background-color: #fcfcfc;
+    transition: 0.3s;
+}
+
+input:focus {
+    border-color: var(--accent-gold);
+    background-color: #fff;
+}
+
+.btn {
+    background: var(--accent-gold);
+    color: white;
+    border: none;
+    padding: 18px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background: var(--primary-cokelat);
+    transform: translateY(-3px);
+}
+
+p {
+    color: #888;
+    font-size: 14px;
+    margin-top: 25px;
+}
+
+a {
+    color: var(--accent-gold);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+a:hover {
+    text-decoration: underline;
+}

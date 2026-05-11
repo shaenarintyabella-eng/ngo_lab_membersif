@@ -1,0 +1,123 @@
+
+:root {
+    --ngolab-brown: #4B2E2E;
+    --ngolab-gold: #C58C5B;
+    --ngolab-green: #006241;
+    --light-bg: #f3f9f6;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f0f0f0;
+    min-height: 100vh;
+}
+
+/* 2. TAMPILAN DASHBOARD  */
+.mobile-app {
+    width: 100%;
+    max-width: 1200px;
+    min-height: 100vh;
+    background-color: white;
+    margin: 0 auto;
+    padding-bottom: 50px;
+    box-shadow: 0 0 50px rgba(0,0,0,0.05);
+}
+
+.header-promo {
+    background-color: var(--light-bg);
+    padding: 60px 50px;
+    border-radius: 0 0 40px 40px;
+    position: relative;
+}
+
+.header-promo h1 {
+    font-size: 48px;
+    color: var(--ngolab-green);
+    font-weight: 800;
+}
+
+.point-box {
+    background: white;
+    margin: -40px 50px 30px 50px;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+}
+
+.badge-point {
+    background: var(--light-bg);
+    padding: 10px 20px;
+    border-radius: 30px;
+    color: var(--ngolab-green);
+    font-weight: 700;
+}
+
+/* 3. GRID MENU  */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+    gap: 25px;
+    padding: 20px 50px;
+}
+
+.food-item {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid #f0f0f0;
+    transition: 0.3s;
+    text-decoration: none;
+    color: inherit;
+}
+
+.food-item:hover { transform: translateY(-10px); }
+
+.food-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.food-info { padding: 20px; }
+
+.bottom-nav {
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    display: flex;
+    justify-content: space-around;
+    padding: 15px 0;
+    border-top: 1px solid #eee;
+    z-index: 100;
+}
+
+/* 5. STYLE LOGIN  */
+.container-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, var(--ngolab-brown), var(--ngolab-gold));
+}
+
+.card-login {
+    width: 100%;
+    max-width: 380px;
+    background: white;
+    padding: 40px;
+    border-radius: 30px;
+}

@@ -8,75 +8,68 @@ if(!isset($_SESSION['user'])){
 }
 
 $user = $_SESSION['user'];
-
 $dataReward = mysqli_query($conn, "SELECT * FROM rewards");
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-    <title>Reward</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <title>Katalog Reward - Ngolab</title>
+    <link rel="stylesheet" href="assets/css/style_reward.css?v=101">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<div class="navbar">
-
-    <h2>Ngo+Lab Membership</h2>
-
-    <div>
-        <a href="dashboard.php">Dashboard</a>
-        <a href="reward.php">Reward</a>
-        <a href="member_qr.php">QR Member</a>
-        <a href="logout.php">Logout</a>
+<div class="mobile-app">
+    <div class="reward-header">
+        <div class="header-content">
+            <h3>Katalog Reward 🎁</h3>
+            <div class="user-points">
+                <span>Poin Kamu:</span>
+                <strong>🟢 <?php echo $user['poin']; ?></strong>
+            </div>
+        </div>
     </div>
 
-</div>
+    <div class="reward-list">
+        <?php while($reward = mysqli_fetch_assoc($dataReward)) { 
+            
+            $nama_item = strtolower($reward['nama_reward']);
+            
+            $gambar = "assets/img/default.jpg";
 
-<div class="container">
+            if(strpos($nama_item, 'teh') !== false) {
+                $gambar = "assets/img/es teh.png";
+            } else if(strpos($nama_item, 'bakso') !== false) {
+                $gambar = "assets/img/bakso.jpeg";
+            }
+        ?>
 
-    <h2 class="title">Katalog Reward 🎁</h2>
-
-    <?php while($reward = mysqli_fetch_assoc($dataReward)) { ?>
-
-        <div class="card">
-
-            <h3>
-                <?php echo $reward['nama_reward']; ?>
-            </h3>
-
-            <p>
-                Poin Dibutuhkan :
-                <b><?php echo $reward['poin_dibutuhkan']; ?></b>
-            </p>
-
-            <form action="proses_redeem.php" method="POST">
-
-                <input 
-                    type="hidden" 
-                    name="user_id"
-                    value="<?php echo $user['id']; ?>"
-                >
-
-                <input 
-                    type="hidden" 
-                    name="reward_id"
-                    value="<?php echo $reward['id']; ?>"
-                >
-
-                <button class="btn" type="submit">
-                    Redeem Reward
-                </button>
-
-            </form>
-
+        <div class="reward-card">
+            <img src="<?php echo $gambar; ?>" alt="<?php echo $reward['nama_reward']; ?>">
+            
+            <div class="reward-info">
+                <h4><?php echo $reward['nama_reward']; ?></h4>
+                <p>Klaim dengan <span><?php echo $reward['poin_dibutuhkan']; ?> Poin</span></p>
+                
+                <form action="proses_redeem.php" method="POST">
+                    <input type="hidden" name="user_id" value="<?php echo $user['id']; ?>">
+                    <input type="hidden" name="reward_id" value="<?php echo $reward['id']; ?>">
+                    <button class="redeem-btn" type="submit">Tukarkan</button>
+                </form>
+            </div>
         </div>
 
-        <br>
+        <?php } ?>
+    </div>
 
-    <?php } ?>
-
+    <nav class="bottom-nav">
+        <a href="dashboard.php"><span>🏠</span>Home</a>
+        <a href="member_qr.php"><span>📱</span>QR</a>
+        <a href="logout.php"><span>🚪</span>Keluar</a>
+    </nav>
 </div>
 
 </body>

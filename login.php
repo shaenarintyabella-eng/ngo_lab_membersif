@@ -30,7 +30,8 @@ if(isset($_POST['login'])){
 <head>
     <title>Login Membership</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="assets/css/style_login.css">
+    <script src="assets/js/app.js"></script>
 </head>
 <body>
 
