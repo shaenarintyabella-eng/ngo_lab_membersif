@@ -1,13 +1,28 @@
 <?php
 session_start();
-include 'koneksi.php';
 
+// --- 1. BAGIAN KONEKSI DATABASE (Disatukan biar praktis) ---
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "membersif"; // Sesuaikan dengan nama database kamu
+
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+if (!$conn) {
+    die("Koneksi gagal: " . mysqli_connect_error());
+}
+
+// --- 2. CEK LOGIN (Satpam Halaman) ---
 if(!isset($_SESSION['user'])){
     header("Location: login.php");
     exit;
 }
 
 $user = $_SESSION['user'];
+
+// --- 3. AMBIL DATA REWARD DARI DATABASE ---
+// Jelasin ke dosen: "Saya narik data dari tabel 'rewards' buat ditampilin di katalog."
 $dataReward = mysqli_query($conn, "SELECT * FROM rewards");
 ?>
 
@@ -19,6 +34,12 @@ $dataReward = mysqli_query($conn, "SELECT * FROM rewards");
     <title>Katalog Reward - Ngolab</title>
     <link rel="stylesheet" href="assets/css/style_reward.css?v=101">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Paksa tulisan tegak biar nggak miring kayak di dashboard tadi */
+        .reward-info h4, .reward-info p, h3 {
+            font-style: normal !important;
+        }
+    </style>
 </head>
 <body>
 
@@ -34,12 +55,14 @@ $dataReward = mysqli_query($conn, "SELECT * FROM rewards");
     </div>
 
     <div class="reward-list">
-        <?php while($reward = mysqli_fetch_assoc($dataReward)) { 
+        <?php 
+        // Melakukan perulangan (looping) untuk setiap data reward yang ada di database
+        while($reward = mysqli_fetch_assoc($dataReward)) { 
             
             $nama_item = strtolower($reward['nama_reward']);
             
+            // Logika sederhana buat nentuin gambar berdasarkan nama item
             $gambar = "assets/img/default.jpg";
-
             if(strpos($nama_item, 'teh') !== false) {
                 $gambar = "assets/img/es teh.png";
             } else if(strpos($nama_item, 'bakso') !== false) {

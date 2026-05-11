@@ -1,12 +1,30 @@
 <?php
 session_start();
 
-if(!isset($_SESSION['user'])){
+// --- BAGIAN KONEKSI DATABASE (Gaya Dosen) ---
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "membersif"; // Sudah diganti sesuai permintaan kamu
+
+// Membangun koneksi
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+// Mengecek keberhasilan koneksi
+if (!$conn) {
+    // Mematikan skrip jika error dan menampilkan pesan
+    die("Koneksi gagal: " . mysqli_connect_error());
+}
+// --- AKHIR BAGIAN KONEKSI ---
+
+// Mengecek apakah session user sudah ada atau belum
+if(!isset($_SESSION['user'])){   
     header("Location: login.php");
     exit();
 }
 
-$user = $_SESSION['user'];
+// Menyimpan data user dari session ke variabel $user
+$user = $_SESSION['user']; 
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +36,7 @@ $user = $_SESSION['user'];
     <link rel="stylesheet" href="assets/css/styles.css?v=100">
     <script src="assets/js/app.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
+    <style> 
         .food-info h4, .food-info .price, .section-title, .greeting p {
             font-style: normal !important;
         }
@@ -28,8 +46,7 @@ $user = $_SESSION['user'];
 
 <div class="mobile-app">
 
-    <div class="header">
-        <div style="padding: 20px 50px 10px 50px;">
+    <div class="header"> <div style="padding: 20px 50px 10px 50px;">
             <p class="hello">Welcome Back 👋</p>
             <h2 style="font-size: 22px; color: #006241;">
                 <?php echo htmlspecialchars($user['nama']); ?>
@@ -37,15 +54,13 @@ $user = $_SESSION['user'];
         </div>
     </div>
 
-    <div class="header-promo">
-        <div class="notif-btn">🔔</div>
+    <div class="header-promo"> <div class="notif-btn">🔔</div>
         <p class="date-text">4 - 14 Mei 2026</p>
         <h1>Bigger Deals<br>NGOLABeveryone</h1>
         <p class="sub-promo">Diskon hingga 100.000 Koin</p>
     </div>
 
-    <div class="point-box">
-        <div class="badge-point">
+    <div class="point-box"> <div class="badge-point">
             🟢 <?php echo $user['poin']; ?> Poin
         </div>
         <a href="reward.php" class="redeem-link">Tukarkan poin &gt;</a>
@@ -58,8 +73,7 @@ $user = $_SESSION['user'];
     <div class="section-title" style="padding: 0 50px; font-weight: 800; font-size: 24px; color: #4a3228;">Katalog Menu Ngolab</div>
     
     <div class="menu-grid">
-        <div class="food-item">
-            <img src="https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?w=400" alt="Mie Yamin">
+        <div class="food-item"> <img src="https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?w=400" alt="Mie Yamin">
             <div class="food-info">
                 <h4>Mie Yamin Biasa</h4>
                 <div class="price">18.000 Koin</div>

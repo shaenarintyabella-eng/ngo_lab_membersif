@@ -1,9 +1,23 @@
 <?php
 session_start();
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "membersif"; // Sudah disamakan jadi 'membership'
+
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+if (!$conn) {
+    die("Koneksi gagal: " . mysqli_connect_error());
+}
+
+// --- CEK LOGIN (Keamanan Halaman) ---
 if(!isset($_SESSION['user'])){
     header("Location: login.php");
     exit;
 }
+
 $user = $_SESSION['user'];
 ?>
 
@@ -13,8 +27,12 @@ $user = $_SESSION['user'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QR Member - Ngolab</title>
-    <link rel="stylesheet" href="assets/css/styles.css?v=2">
+    <link rel="stylesheet" href="assets/css/styles.css?v=3">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Memastikan semua teks tegak/tidak miring */
+        * { font-style: normal !important; }
+    </style>
 </head>
 <body>
 

@@ -1,5 +1,18 @@
 <?php
-include 'koneksi.php';
+// --- BAGIAN KONEKSI DATABASE (Gaya Dosen) ---
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "membersif"; // Sudah disamakan jadi 'membership'
+
+// Membangun koneksi
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+// Mengecek keberhasilan koneksi
+if (!$conn) {
+    die("Koneksi gagal: " . mysqli_connect_error());
+}
+// --- AKHIR BAGIAN KONEKSI ---
 
 if(isset($_POST['register'])){
     $nama = $_POST['nama'];
@@ -7,6 +20,7 @@ if(isset($_POST['register'])){
     $password = $_POST['password'];
 
     // Menambah user baru dengan poin awal 0
+    // Jelasin ke dosen: Poin diset 0 karena ini member baru
     mysqli_query($conn, "INSERT INTO users(nama,email,password,poin) 
     VALUES('$nama','$email','$password',0)");
 
@@ -22,7 +36,8 @@ if(isset($_POST['register'])){
 <head>
     <title>Register Membership</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/style_register.css"></head>
+    <link rel="stylesheet" href="assets/css/style_register.css">
+</head>
 <body>
 
 <div class="container">
