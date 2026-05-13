@@ -2,6 +2,7 @@
     --primary-brown: #4a3228;
     --gold-accent: #bc8a5f;
     --bg-cream: #fdf8f5;
+    --dashboard-green: #006241;
 }
 
 * {
@@ -32,18 +33,20 @@ body {
     display: flex;
     align-items: center;
     gap: 15px;
+    background-color: var(--dashboard-green);
+    border-radius: 0 0 20px 20px;
 }
 
 .back-link {
     text-decoration: none;
     font-size: 24px;
-    color: var(--primary-brown);
+    color: white;
 }
 
 .header-section h3 {
     font-size: 18px;
     font-weight: 700;
-    color: var(--primary-brown);
+    color: white;
 }
 
 .content-container {
@@ -115,6 +118,34 @@ body {
     color: #aaa;
     margin-bottom: 35px;
 }
+
+/* Navigasi Bawah */
+.bottom-nav {
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    max-width: 414px;
+    background: #F97316;
+    display: flex;
+    justify-content: space-around;
+    padding: 15px 0;
+    border-top: 1px solid #eee;
+    z-index: 100;
+}
+
+.bottom-nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    text-align: center;
+    font-size: 14px;
+}
+
+.bottom-nav a.active {
+    color: #FFE4B5;
+    font-weight: 700;
+}
+
 
 .card-bottom {
     display: flex;

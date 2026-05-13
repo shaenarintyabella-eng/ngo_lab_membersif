@@ -2,7 +2,7 @@ console.log("Ngo Lab Membership Ready!");
 
 document.addEventListener('DOMContentLoaded', function() {
 
-    // 1. FITUR SAPAAN OTOMATIS BERDASARKAN WAKTU
+    //  FITUR SAPAAN OTOMATIS BERDASARKAN WAKTU
     const greetingText = document.querySelector('.hello');
     
     if (greetingText) {

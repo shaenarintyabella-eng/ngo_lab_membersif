@@ -1,6 +1,6 @@
 :root {
-    --primary: #4a3228; /* Cokelat tetap sama */
-    --accent: #bc8a5f;
+    --primary: #4a3228;
+    --accent: #0077c9;
     --light-bg: #fdf8f5;
 }
 
@@ -112,12 +112,28 @@ body {
     bottom: 0;
     width: 100%;
     max-width: 1200px;
-    background: white;
+    background: #F97316;
     display: flex;
     justify-content: space-around;
-    padding: 20px 0;
+    padding: 15px 0;
     border-top: 1px solid #eee;
+    z-index: 100;
 }
+
+.bottom-nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    text-align: center;
+    font-size: 14px;
+}
+
+.bottom-nav a.active {
+    color: #FFE4B5;
+    font-weight: 700;
+}
+
+
 
 .bottom-nav a { text-decoration: none; color: #bbb; font-size: 14px; text-align: center; }
 .bottom-nav span { display: block; font-size: 24px; margin-bottom: 5px; }

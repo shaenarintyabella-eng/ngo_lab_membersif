@@ -1,7 +1,10 @@
-/* --- TEMA FULL COKELAT MAHAL (VERSI WEB) --- */
+/* --- FINAL TEMPLATE COLOR: BLUE, ORANGE, SLATE --- */
 :root {
-    --primary-cokelat: #4a3228; /* Warna cokelat utama kamu */
-    --accent-gold: #bc8a5f;
+    --primary-orange: #F97316;
+    --soft-orange: #F7B267;
+    --secondary-blue: #00A2F4;
+    --tertiary-slate: #1E293B;
+    --neutral-bg: #F9FAFB;
     --white: #ffffff;
 }
 
@@ -13,8 +16,8 @@
 }
 
 body {
-    /* LATAR BELAKANG FULL COKELAT */
-    background-color: var(--primary-cokelat); 
+    
+    background-color: var(--soft-orange) !important;
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -23,29 +26,33 @@ body {
 
 .container {
     width: 100%;
-    max-width: 1200px; /* TETAP WEB DESKTOP */
+    max-width: 1200px;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* Kita hapus background white di sini biar latarnya full cokelat dari body */
 }
 
 .card {
-    background: white;
+    background: var(--white);
     width: 90%;
-    max-width: 450px; /* Ukuran kotak login tetap proporsional */
+    max-width: 450px;
     padding: 50px 40px;
-    border-radius: 40px; /* Makin bulat biar makin modern */
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3); /* Shadow lebih dalam biar mewah */
+    border-radius: 40px; 
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
     text-align: center;
 }
 
 .title {
-    color: var(--primary-cokelat);
+    color: var(--tertiary-slate);
     font-size: 28px;
     font-weight: 800;
     margin-bottom: 35px;
+}
+
+.title span {
+    
+    color: var(--primary-orange);
 }
 
 form {
@@ -58,7 +65,7 @@ input {
     width: 100%;
     padding: 18px 20px;
     border-radius: 15px;
-    border: 1px solid #eee;
+    border: 1px solid #e2e8f0;
     outline: none;
     font-size: 14px;
     background-color: #fcfcfc;
@@ -66,13 +73,16 @@ input {
 }
 
 input:focus {
-    border-color: var(--accent-gold);
+    /* Border input saat aktif menjadi warna Biru */
+    border-color: var(--secondary-blue);
     background-color: #fff;
+    box-shadow: 0 0 0 4px rgba(0, 162, 244, 0.1);
 }
 
 .btn {
-    background: var(--accent-gold);
-    color: white;
+    /* Tombol Login menggunakan warna oranye lembut */
+    background: var(--soft-orange) !important;
+    color: white !important;
     border: none;
     padding: 18px;
     border-radius: 50px;
@@ -83,19 +93,25 @@ input:focus {
     margin-top: 10px;
 }
 
+.btn.login-btn {
+    background: var(--soft-orange) !important;
+    color: var(--white) !important;
+}
+
 .btn:hover {
-    background: var(--primary-cokelat);
+    filter: brightness(90%);
     transform: translateY(-3px);
 }
 
 p {
-    color: #888;
+    color: #64748b;
     font-size: 14px;
     margin-top: 25px;
 }
 
-a {
-    color: var(--accent-gold);
+a { 
+    /* Link Register menggunakan warna Biru */
+    color: var(--secondary-blue); 
     text-decoration: none;
     font-weight: 700;
 }

@@ -1,9 +1,9 @@
 
 :root {
-    --ngolab-brown: #4B2E2E;
-    --ngolab-gold: #C58C5B;
-    --ngolab-green: #006241;
-    --light-bg: #f3f9f6;
+    --ngolab-brown: #F97316;
+    --ngolab-gold: #00A2F4;
+    --ngolab-green: #1E293B;
+    --light-bg: #F9FAFB;
 }
 
 * {
@@ -14,11 +14,28 @@
 }
 
 body {
-    background-color: #f0f0f0;
+    background-color: #F3F4F6;
     min-height: 100vh;
 }
 
 /* 2. TAMPILAN DASHBOARD  */
+
+.header-user {
+    padding: 20px 50px 10px 50px;
+    background-color: var(--bg-light);
+}
+
+profile-card {
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+}
+
 .mobile-app {
     width: 100%;
     max-width: 1200px;
@@ -30,7 +47,7 @@ body {
 }
 
 .header-promo {
-    background-color: var(--light-bg);
+    background-color: #1E293B;
     padding: 60px 50px;
     border-radius: 0 0 40px 40px;
     position: relative;
@@ -38,8 +55,13 @@ body {
 
 .header-promo h1 {
     font-size: 48px;
-    color: var(--ngolab-green);
+    color: #F97316;
     font-weight: 800;
+}
+
+.header-promo p{
+    color: white;
+    font-weight: 500;
 }
 
 .point-box {
@@ -56,11 +78,22 @@ body {
 }
 
 .badge-point {
-    background: var(--light-bg);
+    background: #00A2F4;
     padding: 10px 20px;
     border-radius: 30px;
-    color: var(--ngolab-green);
+    color: white;
     font-weight: 700;
+}
+
+.redeem-link {
+    color: #F97316;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.redeem-link:hover {
+    text-decoration: underline;
 }
 
 /* 3. GRID MENU  */
@@ -89,7 +122,15 @@ body {
     object-fit: cover;
 }
 
-.food-info { padding: 20px; }
+.food-info p{
+    color: #FACC15;
+    font-weight: 700;
+}
+
+.price{
+    color: #FACC15;
+    font-weight: 700;
+}
 
 .bottom-nav {
     position: sticky;
@@ -97,12 +138,18 @@ body {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    background: white;
+    background: #F97316;
     display: flex;
     justify-content: space-around;
     padding: 15px 0;
     border-top: 1px solid #eee;
     z-index: 100;
+}
+
+.bottom-nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:600;
 }
 
 /* 5. STYLE LOGIN  */

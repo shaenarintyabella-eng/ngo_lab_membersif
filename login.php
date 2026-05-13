@@ -1,11 +1,11 @@
 <?php
 session_start();
 
-// --- BAGIAN KONEKSI DATABASE (Gaya Dosen) ---
+
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "membersif"; // Sudah diganti jadi 'membership'
+$dbname = "membersif";
 
 // Membangun koneksi
 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -14,29 +14,29 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
     die("Koneksi gagal: " . mysqli_connect_error());
 }
-// --- AKHIR BAGIAN KONEKSI ---
+
 
 if(isset($_POST['login'])){
 
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    // Query untuk mencari user berdasarkan email dan password
+
     $query = mysqli_query($conn, "SELECT * FROM users 
     WHERE email='$email' AND password='$password'");
 
     $data = mysqli_fetch_assoc($query);
 
     if($data){
-        // Kalau data ketemu, simpan data user ke dalam session
+        
         $_SESSION['user'] = $data;
 
-        // Pindah ke halaman dashboard
+
         header("Location: dashboard.php");
         exit;
 
     } else {
-        // Kalau salah, munculkan peringatan
+        //  ini Kalau salah, munculkan peringatan
         echo "<script>alert('Email atau Password salah');</script>";
     }
 }
@@ -60,24 +60,25 @@ if(isset($_POST['login'])){
 
         <form method="POST">
 
-            <input 
-                type="email" 
-                name="email" 
+            <input
+                type="email"
+                name="email"
                 placeholder="Masukkan Email"
                 required
             >
 
-            <input 
-                type="password" 
-                name="password" 
+            <input
+                type="password"
+                name="password"
                 placeholder="Masukkan Password"
                 required
             >
 
-            <button 
-                class="btn" 
-                type="submit" 
+            <button
+                class="btn login-btn"
+                type="submit"
                 name="login"
+                style="background: #00A2F4 !important; color: white !important;"
             >
                 Login
             </button>

@@ -2,6 +2,8 @@
 :root {
     --primary-cokelat: #4a3228; /* Warna cokelat utama kamu */
     --accent-gold: #bc8a5f;
+    --soft-orange: #F7B267;
+    --secondary-blue: #00A2F4;
     --white: #ffffff;
 }
 
@@ -13,8 +15,8 @@
 }
 
 body {
-    /* LATAR BELAKANG FULL COKELAT */
-    background-color: var(--primary-cokelat); 
+    /* LATAR BELAKANG ORANYE LEMBUT - sama seperti login */
+    background-color: var(--soft-orange) !important;
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -71,7 +73,7 @@ input:focus {
 }
 
 .btn {
-    background: var(--accent-gold);
+    background: var(--secondary-blue);
     color: white;
     border: none;
     padding: 18px;
@@ -84,7 +86,7 @@ input:focus {
 }
 
 .btn:hover {
-    background: var(--primary-cokelat);
+    background: #0077c9;
     transform: translateY(-3px);
 }
 
